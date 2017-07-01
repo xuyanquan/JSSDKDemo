@@ -1,4 +1,4 @@
-@import "./mass/mass/index";
+// @import "./mass/mass/index";
 @abstract "_config.mcss";
 
 .sdk-wrap {

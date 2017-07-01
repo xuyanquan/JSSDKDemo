@@ -48,18 +48,13 @@ gulp.task('webpack', function() {
         .on('error', function(err){
             throw err
         });
-});
 
-gulp.task('jshint', function() {
-    gulp.src(['src/javascript/**/*.js'])
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'))
-});
-
-gulp.task('uglify', function() {
-    gulp.src(['./dist/sdkbootdemo.js'])
-        .pipe(uglify())
-        .pipe(gulp.dest('./dist/min'));
+    gulp.src('src/javascript/index.js')
+        .pipe(webpack(getConfig()))
+        .pipe(gulp.dest('./dist'))
+        .on('error', function(err){
+            throw err
+        });
 });
 
 gulp.task('mcss', function(){
@@ -73,7 +68,7 @@ gulp.task('mcss', function(){
 
 gulp.task('watch', function() {
     gulp.watch('src/mcss/**/*.mcss', ['mcss']);
-    gulp.watch('src/**/*.js', ['jshint', 'webpack', 'uglify']);
+    gulp.watch('src/**/*.js', ['webpack']);
     gulp.watch('src/**/*.ejs', ['compx']);
     gulp.watch(['server.js'], function() {
         gulp.run('server');
@@ -168,7 +163,7 @@ gulp.task('server', function() {
     });
 });
 
-gulp.task('compx', ['jshint', 'webpack', 'uglify', 'mcss']);
+gulp.task('compx', ['webpack', 'mcss']);
 
 gulp.task('online', ['onlinerun']);
 
@@ -178,7 +173,7 @@ gulp.task('pre', ['prerun']);
 
 gulp.task('publish', ['prerun', 'testrun', 'onlinerun']);
 
-gulp.task('build', ['server', 'jshint', 'webpack', 'uglify', 'mcss', 'browserSync', 'watch']);
+gulp.task('build', ['server', 'webpack', 'mcss', 'browserSync', 'watch']);
 
 gulp.task('default', ['build']);
 
