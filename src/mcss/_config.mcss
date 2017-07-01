@@ -1,0 +1,15 @@
+// img dist path
+
+$iconpath = '/dist/res/icon';
+$imgpath = '/dist/res/images';
+
+// define font
+$fontfamily = {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+// define keyframes works
+$keyframes(rotatenomal,{
+	0%{$transform: rotate(0deg);}
+	100%{$transform: rotate(360deg);}
+});

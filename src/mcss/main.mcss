@@ -1,0 +1,18 @@
+@import "./mass/mass/index";
+@abstract "_config.mcss";
+
+.sdk-wrap {
+	$reset-nec();
+	$fontfamily();
+}
+
+.imgdemo {
+	background-image: url('#{$iconpath}/demo.png');
+}
+
+.anidemo {
+	$animation: rotatenomal .8s linear infinite;
+}
+
+
+
