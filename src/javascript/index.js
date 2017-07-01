@@ -2,7 +2,7 @@
 
 var config = require('./config');
 var util = require('./util');
-var tpl = require('ejs!./../tpl/entrance.ejs');
+var tpl = require('ejs!./../tpl/test.ejs');
 // document.body.appendChild(util.strToDom(tpl())[0]);
 var democpn = require('./../component/demo/demo');
 
